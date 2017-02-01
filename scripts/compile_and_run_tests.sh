@@ -4,6 +4,13 @@
 # This script compiles Qt projects and runs GoogleTest unit tests
 #
 
+# Force script to be run as a bash script and not a sh script
+if [ "$(ps -p "$$" -o comm=)" != "bash" ]; then
+    # Taken from http://unix-linux.questionfor.info/q_unix-linux-programming_85038.html
+    bash "$0" "$@"
+    exit "$?"
+fi
+
 # make the script fail if any command fails
 set -e
 
