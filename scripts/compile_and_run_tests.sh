@@ -53,9 +53,9 @@ for proj in ${projects[@]}; do
         if [ -f $projName/*.pro ]; then
             echo "Compile $projName"
             cd $projName
-            qmake
-            make clean
-            make
+            #qmake
+            #make clean
+            #make
             cd -
         else
            echo "Nothing to do for $projName"
