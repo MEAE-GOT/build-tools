@@ -20,10 +20,12 @@ projects=$( ls -1p | grep / )
 
 echo "Compiling and running tests..."
 
-# clean old test results
-if [ -d "test-results" ]; then
-    rm test-results/*
+if [ ! -d "test-results" ]; then
+    mkdir test-results
 fi
+
+# clean old test results
+rm test-results/*
 
 for proj in ${projects[@]}; do
 
@@ -31,11 +33,7 @@ for proj in ${projects[@]}; do
 
     testDir=$projName/tests/auto/test
     if [ -d $testDir ]; then
-
-        if [ ! -d "test-results" ]; then
-            mkdir test-results
-        fi
-
+    
         # compile and run tests
         echo "Compiling $projName:"
         cd $proj/tests
