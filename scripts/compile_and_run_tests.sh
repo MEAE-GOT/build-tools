@@ -7,7 +7,7 @@
 # make the script fail if any command fails
 set -e
 
-cd ../../thomas-test
+cd ../../thomas-repo
 
 projects=$( ls -1p | grep / )
 
