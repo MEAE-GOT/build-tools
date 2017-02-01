@@ -25,9 +25,7 @@ if [ ! -d "test-results" ]; then
 fi
 
 # clean old test results
-if [ ! -d "test-results/*" ]; then
-    rm test-results/*
-fi
+rm -f test-results/*
 
 for proj in ${projects[@]}; do
 
