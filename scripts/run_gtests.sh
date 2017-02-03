@@ -12,6 +12,10 @@ workspace="$1"
 
 cd $workspace
 
+if [ ! -d test-results ]; then
+    mkdir test-results
+fi
+
 ### java tool to filter out Qt projects and sort them by dependency
 projects=$(java -jar ../build-tools/ProjectSorter/deploy/ProjectSorter.jar . .pro)
 
