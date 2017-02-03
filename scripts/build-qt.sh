@@ -12,7 +12,14 @@ set -e
 
 ### arguments
 workspace="$1"
-qmake="$2"
+qmake="qmake"
+
+if [ -z "$2" ]; then
+    echo "No qmake specified, using system default"
+else
+    qmake="$2"
+fi
+
 cd $workspace
 
 ### qmake path
@@ -31,8 +38,8 @@ for proj in ${projects[@]}; do
     echo "***** Compile $projName *****"
     cd $projName
 
+    eval $qmake 
     make clean
-    $qmake
     make
 
     cd -
@@ -43,8 +50,8 @@ for proj in ${projects[@]}; do
         # compile tests code
         echo "***** Compiling test code for $projName *****"
         cd $proj/tests
+    	eval $qmake
         make clean
-    	$qmake
         make
 	cd -
     fi
