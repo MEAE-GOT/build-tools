@@ -28,12 +28,13 @@ for proj in ${projects[@]}; do
     echo "***** Running unit test(s) for $projName *****"
     testDir=$projName/tests/auto/test
     if [ -d $testDir ]; then
-        cd $proj/tests
+        cd $proj/tests/auto/test
         
-        auto/test/test --gtest_output=xml
+        ./test --gtest_output=xml
+        
         cd -
 
-        mv $projName/tests/test_detail.xml test-results/$projName-test_detail.xml
+        mv $projName/tests/auto/test/test_detail.xml test-results/$projName-test_detail.xml
     else
         echo "No tests found!"
     fi
