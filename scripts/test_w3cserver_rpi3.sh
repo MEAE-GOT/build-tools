@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 rpi3_ip=$1
 ssh_key="/media/pfpro/SpareDisc/bamboo/ssh/id_rsa"
 w3cserver_build_path="../LP-W3CSER-JOB1/gdp/gdp-src-build/tmp/work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/w3c-server/1.0-r0/build/src"
@@ -21,7 +23,7 @@ sleep 10
 
 echo "Server started"
 
-kill $pid
-
 echo "Start test clients..."
-$test_client wss://$rpi3_ip:8080 -getvss
+$test_client wss://$rpi3_ip:8080 -subscribe
+
+kill $pid
