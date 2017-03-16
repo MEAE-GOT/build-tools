@@ -2,8 +2,8 @@
 
 rpi3_ip=$1
 ssh_key="/media/pfpro/SpareDisc/bamboo/ssh/id_rsa"
-w3cserver_build_path="../../../LP-W3CSER-JOB1/gdp/gdp-src-build/tmp/work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/w3c-server/1.0-r0/build/src"
-test_client="../../w3c-server/W3CQtTestClient/src/W3CQtTestClient"
+w3cserver_build_path="../LP-W3CSER-JOB1/gdp/gdp-src-build/tmp/work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/w3c-server/1.0-r0/build/src"
+test_client="../LP-W3CSER-COM/w3c-server/W3CQtTestClient/src/W3CQtTestClient"
 
 echo "Stopping and removing old w3cserver from client..."
 ssh -i $ssh_key root@$rpi3_ip 'killall -9 W3CServer'
