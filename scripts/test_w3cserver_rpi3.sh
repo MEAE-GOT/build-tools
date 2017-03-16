@@ -35,8 +35,11 @@ sleep 10
 
 echo "Server started"
 
-echo "Start test clients..."
-$test_client -url wss://$server:8080 -c $no_clients $test_case
+args="-u wss://$server:8080 -c $no_clients $test_case"
+
+echo "Starting test client with arguments: $args"
+
+$test_client $args
 
 echo "Closing ssh connection."
 kill $pid
