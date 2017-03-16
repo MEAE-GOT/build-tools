@@ -13,7 +13,7 @@ echo "      server host: $server"
 echo "number of clients: $no_clients"
 echo "        test case: $test_case"
 echo "     build number: $build_number"
-echo "   repo revision: $repo_revision"
+echo "    repo revision: $repo_revision"
 
 ssh_key="/media/pfpro/SpareDisc/bamboo/ssh/id_rsa"
 w3cserver_build_path="../LP-W3CSER-JOB1/gdp/gdp-src-build/tmp/work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/w3c-server/1.0-r0/build/src"
