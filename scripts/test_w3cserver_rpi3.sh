@@ -36,4 +36,5 @@ echo "Server started"
 echo "Start test clients..."
 $test_client wss://$server:8080 $test_case
 
+echo "Closing ssh connection."
 kill $pid
