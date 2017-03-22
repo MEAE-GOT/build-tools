@@ -36,7 +36,7 @@ sleep 10
 echo "Server started"
 
 software=$build_number_$repo_revision
-args="-u wss://$server:8080 -c $no_clients --software $software $test_case"
+args="--url wss://$server:8080 -c $no_clients --software $software $test_case"
 
 echo "Starting test client with arguments: $args"
 
