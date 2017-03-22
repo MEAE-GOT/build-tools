@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 server=$1
 no_clients=$2
 test_case=$3
@@ -21,6 +19,8 @@ test_client="../LP-W3CSER-COM/w3c-server/W3CQtTestClient/src/W3CQtTestClient"
 
 echo "Stopping and removing old w3cserver from client..."
 ssh -i $ssh_key root@$server 'killall -9 W3CServer'
+
+set -e
 
 echo "Copying new w3cserver..."
 scp -i $ssh_key "${w3cserver_build_path}/W3CServer" root@$server:/usr/bin
