@@ -5,6 +5,7 @@ no_clients=$2
 test_case=$3
 build_number=$4
 repo_revision=$5
+build_timestamp=$6
 
 echo "Test client parameters:"
 echo "      server host: $server"
@@ -12,6 +13,7 @@ echo "number of clients: $no_clients"
 echo "        test case: $test_case"
 echo "     build number: $build_number"
 echo "    repo revision: $repo_revision"
+echo "  build timestamp: $build_timestamp"
 
 ssh_key="/media/pfpro/SpareDisc/bamboo/ssh/id_rsa"
 test_client="../LP-W3CSER-COM/w3c-server/W3CQtTestClient/src/W3CQtTestClient"
@@ -35,7 +37,7 @@ sleep 10
 echo "Server started"
 
 software=$build_number_$repo_revision
-args="--url wss://$server:8080 -c $no_clients --software $software $test_case"
+args="--url wss://$server:8080 -c $no_clients --timestamp $build_timestamp --software $software $test_case"
 
 echo "Starting test client with arguments: $args"
 
