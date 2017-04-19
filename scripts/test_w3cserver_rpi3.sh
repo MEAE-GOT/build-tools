@@ -16,7 +16,7 @@ echo "    repo revision: $repo_revision"
 echo "  build timestamp: $build_timestamp"
 
 ssh_key="/media/pfpro/SpareDisc/bamboo/ssh/id_rsa"
-test_client="../LP-W3CSER-COM/w3c-server/W3CQtTestClient/src/W3CQtTestClient"
+test_client="../LP-W3CSER-COM/gdp-melco/W3CQtTestClient/src/W3CQtTestClient"
 
 echo "Kill W3CServer if any running..."
 ssh -i $ssh_key root@$server 'killall -9 W3CServer'
