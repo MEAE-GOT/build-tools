@@ -16,6 +16,8 @@ echo "Copy $package_file to target ..."
 scp -i $ssh_key "$package_file" root@$host:/home/root
 
 echo "Install $package_name ..."
-ssh -i $ssh_key root@$host "rpm -i --replacepkgs /home/root/$package_name"
+(ssh -i $ssh_key root@$host "nohup rpm -i --replacepkgs /home/root/$package_name")&
+
+sleep 10
 
 echo "done!"
