@@ -11,6 +11,7 @@ package_name=$(basename $package_file)
 echo "Stopping $process_name ..."
 ssh -i $ssh_key root@$host "killall -9 $process_name"
 
+## stop and fail script on errors
 set -e
 
 echo "Copy $package_file to target ..."
@@ -23,6 +24,9 @@ pid=$!
 echo "pid: $pid"
 
 sleep 10
+
+## kill could fail because the connection is already closed, this is not an error
+set +e
 
 echo "killing ssh connection..."
 kill $pid
