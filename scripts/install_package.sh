@@ -1,14 +1,15 @@
 #!/bin/sh
 
 host=$1
-package_file=$2
+process_name=$2
+package_file=$3
 
-process_to_stop="W3CServer"
+#process_to_stop="W3CServer"
 ssh_key="/media/pfpro/SpareDisc/bamboo/ssh/id_rsa"
 package_name=$(basename $package_file)
 
-echo "Stopping $process_to_stop ..."
-ssh -i $ssh_key root@$host "killall -9 $process_to_stop"
+echo "Stopping $process_name ..."
+ssh -i $ssh_key root@$host "killall -9 $process_name"
 
 set -e
 
