@@ -18,6 +18,12 @@ scp -i $ssh_key "$package_file" root@$host:/home/root
 echo "Install $package_name ..."
 (ssh -i $ssh_key root@$host "nohup rpm -i --replacepkgs /home/root/$package_name")&
 
+pid=$!
+echo "pid: $pid"
+
 sleep 10
+
+echo "killing ssh connection..."
+kill $pid
 
 echo "done!"
