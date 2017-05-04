@@ -15,7 +15,7 @@ echo "        test case: $test_case"
 echo "     build number: $build_number"
 echo "    repo revision: $repo_revision"
 echo "  build timestamp: $build_timestamp"
-echo "         plan key: $plan_key
+echo "         plan key: $plan_key"
 
 ssh_key="/media/pfpro/SpareDisc/bamboo/ssh/id_rsa"
 test_client="../${plan_key}-COM/gdp-melco/W3CQtTestClient/src/W3CQtTestClient"
