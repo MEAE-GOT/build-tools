@@ -11,8 +11,17 @@ fi
 set -e
 
 ### arguments
-workspace="$1"
 qmake_bin="qmake"
+
+if [ -z "$1" ]; then
+    ### java tool to filter out Qt projects and sort them by dependency
+    projects=$(java -jar build-tools/ProjectSorter/deploy/ProjectSorter.jar . .pro)
+else
+    workspace="$1"
+    cd $workspace
+    ### java tool to filter out Qt projects and sort them by dependency
+    projects=$(java -jar ../build-tools/ProjectSorter/deploy/ProjectSorter.jar . .pro)
+fi
 
 if [ -z "$2" ]; then
     echo "No qmake specified, using system default"
@@ -20,14 +29,9 @@ else
     qmake_bin="$2"
 fi
 
-cd $workspace
-
 ### qmake path
 
 #qmake=/home/vagrant/Qt-5.6/5.6/gcc_64/bin/qmake
-
-### java tool to filter out Qt projects and sort them by dependency
-projects=$(java -jar ../build-tools/ProjectSorter/deploy/ProjectSorter.jar . .pro)
 
 echo "Compiling..."
 
